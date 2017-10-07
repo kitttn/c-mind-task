@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CMindTestTask</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a quam suscipit, tincidunt erat ac, scelerisque nulla. In viverra est sodales mattis sollicitudin. Phasellus nec dapibus quam, eu posuere purus. </string>
+    <string name="http_verge_com">http://verge.com</string>
 </resources>
