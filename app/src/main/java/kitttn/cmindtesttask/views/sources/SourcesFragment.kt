@@ -49,7 +49,7 @@ class SourcesFragment : BaseFragment(), SourcesView {
         dataRV.adapter = adapter
 
         refresher.setOnRefreshListener { loadSources() }
-        loadSources()
+        // loadSources()
     }
 
     override fun onStart() {

@@ -10,6 +10,8 @@ sealed class SourcesState
 
 class SourcesStateLoading : SourcesState()
 
+class SourceStateNothing : SourcesState()
+
 data class SourcesStateError(val error: Throwable) : SourcesState()
 
 data class SourcesStateData(val data: List<SourceEntity>) : SourcesState()
