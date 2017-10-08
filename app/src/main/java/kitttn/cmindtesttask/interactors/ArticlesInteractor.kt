@@ -22,8 +22,8 @@ class ArticlesInteractor(val api: NewsApi,
     private val composite = CompositeDisposable()
     private val stateList = mutableListOf<ArticleState>()
 
-    init {
-        changeState(ArticleStateNothing())
+    fun openPage(sourceId: String) {
+        changeState(ArticleStateOpenedNew(sourceId))
     }
 
     fun loadArticles(sourceId: String) {

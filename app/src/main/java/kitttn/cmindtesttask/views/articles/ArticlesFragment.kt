@@ -9,10 +9,7 @@ import android.view.ViewGroup
 import kitttn.cmindtesttask.R
 import kitttn.cmindtesttask.model.ArticleEntity
 import kitttn.cmindtesttask.presenter.ArticlesPresenter
-import kitttn.cmindtesttask.states.ArticleState
-import kitttn.cmindtesttask.states.ArticleStateData
-import kitttn.cmindtesttask.states.ArticleStateError
-import kitttn.cmindtesttask.states.ArticleStateLoading
+import kitttn.cmindtesttask.states.*
 import kitttn.cmindtesttask.views.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_data_page.*
 import javax.inject.Inject
@@ -52,12 +49,11 @@ class ArticlesFragment : BaseFragment(), ArticleView {
             sourceId = savedInstanceState.getString("sourceId")
 
         presenter.view = this
-        presenter.sourceId = sourceId
 
         dataRV.layoutManager = LinearLayoutManager(act)
         dataRV.adapter = adapter
 
-        refresher.setOnRefreshListener { presenter.loadArticles() }
+        refresher.setOnRefreshListener { presenter.loadArticles(sourceId) }
     }
 
     override fun onStart() {
@@ -80,6 +76,7 @@ class ArticlesFragment : BaseFragment(), ArticleView {
         refresher.isRefreshing = false
 
         when (state) {
+            is ArticleStateOpenedNew -> presenter.loadArticles(state.sourceId)
             is ArticleStateLoading -> refresher.isRefreshing = true
             is ArticleStateError -> state.error.printStackTrace()
             is ArticleStateData -> {

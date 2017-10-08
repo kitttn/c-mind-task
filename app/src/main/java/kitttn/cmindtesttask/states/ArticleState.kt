@@ -8,7 +8,7 @@ import kitttn.cmindtesttask.model.ArticleEntity
 
 sealed class ArticleState
 
-class ArticleStateNothing : ArticleState()
+data class ArticleStateOpenedNew(val sourceId: String) : ArticleState()
 
 data class ArticleStateError(val error: Throwable) : ArticleState()
 
