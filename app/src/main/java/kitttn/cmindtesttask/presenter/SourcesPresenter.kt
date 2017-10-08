@@ -1,5 +1,6 @@
 package kitttn.cmindtesttask.presenter
 
+import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -12,6 +13,7 @@ import kitttn.cmindtesttask.plusAssign
  */
 
 class SourcesPresenter(private val api: NewsApi) {
+    private val TAG = "SourcesPresenter"
     private val composite = CompositeDisposable()
 
     fun start() {
@@ -20,6 +22,7 @@ class SourcesPresenter(private val api: NewsApi) {
 
     fun stop() {
         composite.clear()
+        Log.i(TAG, "stop: Subscriptions are cleared!")
     }
 
     fun loadSources(success: (List<SourceEntity>) -> Unit, error: (Throwable) -> Unit = Throwable::printStackTrace) {

@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kitttn.cmindtesttask.R
 import kitttn.cmindtesttask.model.SourceEntity
+import kitttn.cmindtesttask.router.AppRouter
 
 /**
  * @author kitttn
  */
 
-class SourceViewAdapter(private val sources: List<SourceEntity>) : RecyclerView.Adapter<SourceViewHolder>() {
+class SourceViewAdapter(private val sources: List<SourceEntity>, private val router: AppRouter)
+    : RecyclerView.Adapter<SourceViewHolder>() {
     override fun onBindViewHolder(holder: SourceViewHolder?, position: Int) {
         holder?.bind(sources[position])
     }
@@ -23,7 +25,6 @@ class SourceViewAdapter(private val sources: List<SourceEntity>) : RecyclerView.
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.view_source, parent, false)
         return SourceViewHolder(view)
     }
-
 }
 
 class SourceViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
