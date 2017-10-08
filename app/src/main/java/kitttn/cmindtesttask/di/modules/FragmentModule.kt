@@ -3,8 +3,8 @@ package kitttn.cmindtesttask.di.modules
 import dagger.Module
 import dagger.Provides
 import kitttn.cmindtesttask.di.annotations.PerActivity
+import kitttn.cmindtesttask.interactors.ArticlesInteractor
 import kitttn.cmindtesttask.interactors.SourcesInteractor
-import kitttn.cmindtesttask.model.NewsApi
 import kitttn.cmindtesttask.presenter.ArticlesPresenter
 import kitttn.cmindtesttask.presenter.SourcesPresenter
 import kitttn.cmindtesttask.views.MainActivity
@@ -19,7 +19,7 @@ class FragmentModule(private val activity: MainActivity) {
     fun sourcesPresenter(interactor: SourcesInteractor) = SourcesPresenter(interactor)
 
     @Provides @PerActivity
-    fun articlesPresenter(api: NewsApi) = ArticlesPresenter(api)
+    fun articlesPresenter(interactor: ArticlesInteractor) = ArticlesPresenter(interactor)
 
     @Provides @PerActivity
     fun activity() = activity

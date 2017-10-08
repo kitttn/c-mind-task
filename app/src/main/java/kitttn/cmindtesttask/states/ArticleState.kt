@@ -8,6 +8,8 @@ import kitttn.cmindtesttask.model.ArticleEntity
 
 sealed class ArticleState
 
+class ArticleStateNothing : ArticleState()
+
 data class ArticleStateError(val error: Throwable) : ArticleState()
 
 class ArticleStateLoading : ArticleState()

@@ -2,6 +2,7 @@ package kitttn.cmindtesttask.di.modules
 
 import dagger.Module
 import dagger.Provides
+import kitttn.cmindtesttask.interactors.ArticlesInteractor
 import kitttn.cmindtesttask.interactors.SourcesInteractor
 import kitttn.cmindtesttask.model.NewsApi
 import javax.inject.Singleton
@@ -14,4 +15,7 @@ import javax.inject.Singleton
 class InteractorModule {
     @Provides @Singleton
     fun provideSourcesInteractor(api: NewsApi) = SourcesInteractor(api)
+
+    @Provides @Singleton
+    fun provideArticlesInteractor(api: NewsApi) = ArticlesInteractor(api)
 }
