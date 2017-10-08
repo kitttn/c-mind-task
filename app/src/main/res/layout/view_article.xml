@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/articleImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient"/>
+
+    <TextView
+        android:id="@+id/articleHeader"
+        style="@style/TextArticleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/_articleDetails"
+        android:layout_alignStart="@id/_articleDetails"
+        android:layout_marginBottom="8dp"
+        android:text="@string/some_header"/>
+
+    <LinearLayout
+        android:id="@id/_articleDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/articleAuthor"
+            style="@style/TextArticleSubHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_1_s"/>
+
+        <TextView
+            android:id="@+id/articleTime"
+            style="@style/TextArticleSubHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/at_1_s"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -2,4 +2,7 @@
     <string name="app_name">CMindTestTask</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a quam suscipit, tincidunt erat ac, scelerisque nulla. In viverra est sodales mattis sollicitudin. Phasellus nec dapibus quam, eu posuere purus. </string>
     <string name="http_verge_com">http://verge.com</string>
+    <string name="some_header">Some header</string>
+    <string name="by_1_s">by %1$s</string>
+    <string name="at_1_s">at %1$s</string>
 </resources>

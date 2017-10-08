@@ -13,6 +13,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextArticleHeader" parent="TextHeader">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextArticleSubHeader">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextHyperlink">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
