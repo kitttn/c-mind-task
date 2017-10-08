@@ -35,13 +35,4 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frameLayout, fragment)
                 .commit()
     }
-
-    override fun onStop() {
-        super.onStop()
-
-        supportFragmentManager
-                .beginTransaction()
-                .remove(fragment)
-                .commitAllowingStateLoss()
-    }
 }

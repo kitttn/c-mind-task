@@ -13,10 +13,10 @@ class AppRouter(private val activity: MainActivity) {
         const val ARTICLES = "articles"
     }
 
-    fun openArticlesPage() {
+    fun openArticlesPage(sourceId: String) {
         activity.supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frameLayout, ArticlesFragment())
+                .replace(R.id.frameLayout, ArticlesFragment.newInstance(sourceId))
                 .addToBackStack(ARTICLES)
                 .commit()
     }

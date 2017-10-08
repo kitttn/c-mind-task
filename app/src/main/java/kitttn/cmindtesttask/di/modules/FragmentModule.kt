@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import kitttn.cmindtesttask.di.annotations.PerActivity
 import kitttn.cmindtesttask.model.NewsApi
+import kitttn.cmindtesttask.presenter.ArticlesPresenter
 import kitttn.cmindtesttask.presenter.SourcesPresenter
 import kitttn.cmindtesttask.views.MainActivity
 
@@ -15,6 +16,9 @@ import kitttn.cmindtesttask.views.MainActivity
 class FragmentModule(private val activity: MainActivity) {
     @Provides @PerActivity
     fun sourcesPresenter(api: NewsApi) = SourcesPresenter(api)
+
+    @Provides @PerActivity
+    fun articlesPresenter(api: NewsApi) = ArticlesPresenter(api)
 
     @Provides @PerActivity
     fun activity() = activity

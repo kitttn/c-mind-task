@@ -16,8 +16,9 @@ import kitttn.cmindtesttask.router.AppRouter
 class SourceViewAdapter(private val sources: List<SourceEntity>, private val router: AppRouter)
     : RecyclerView.Adapter<SourceViewHolder>() {
     override fun onBindViewHolder(holder: SourceViewHolder?, position: Int) {
-        holder?.bind(sources[position])
-        holder?.view?.setOnClickListener { router.openArticlesPage() }
+        val source = sources[position]
+        holder?.bind(source)
+        holder?.view?.setOnClickListener { router.openArticlesPage(source.id) }
     }
 
     override fun getItemCount() = sources.size
