@@ -5,4 +5,6 @@
     <string name="some_header">Some header</string>
     <string name="by_1_s">by %1$s</string>
     <string name="at_1_s">at %1$s</string>
+    <string name="open_in_browser">Open in browser?</string>
+    <string name="dou_you_want_to_open">Do you want to open article in browser?</string>
 </resources>

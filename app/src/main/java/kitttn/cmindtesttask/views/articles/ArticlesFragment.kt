@@ -19,7 +19,7 @@ import javax.inject.Inject
 class ArticlesFragment : BaseFragment() {
     private lateinit var sourceId: String
     private var articles = mutableListOf<ArticleEntity>()
-    private var adapter = ArticlesRVAdapter(articles)
+    private val adapter by lazy { ArticlesRVAdapter(articles, act) }
     @Inject lateinit var presenter: ArticlesPresenter
 
     companion object {
@@ -41,7 +41,7 @@ class ArticlesFragment : BaseFragment() {
         act.component.inject(this)
 
         dataRV.layoutManager = LinearLayoutManager(act)
-        dataRV.adapter = createTestAdapter()
+        dataRV.adapter = adapter
 
         refresher.setOnRefreshListener { loadArticles() }
     }
@@ -69,6 +69,6 @@ class ArticlesFragment : BaseFragment() {
 
     private fun createTestAdapter(): ArticlesRVAdapter {
         val list = (1..20).map { ArticleEntity("", "", "", "", "", "") }.toMutableList()
-        return ArticlesRVAdapter(list)
+        return ArticlesRVAdapter(list, act)
     }
 }
