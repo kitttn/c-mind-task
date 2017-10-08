@@ -17,6 +17,7 @@ class SourceViewAdapter(private val sources: List<SourceEntity>, private val rou
     : RecyclerView.Adapter<SourceViewHolder>() {
     override fun onBindViewHolder(holder: SourceViewHolder?, position: Int) {
         holder?.bind(sources[position])
+        holder?.view?.setOnClickListener { router.openArticlesPage() }
     }
 
     override fun getItemCount() = sources.size

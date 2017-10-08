@@ -11,7 +11,7 @@ import kitttn.cmindtesttask.model.SourceEntity
 import kitttn.cmindtesttask.presenter.SourcesPresenter
 import kitttn.cmindtesttask.router.AppRouter
 import kitttn.cmindtesttask.views.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_sources.*
+import kotlinx.android.synthetic.main.fragment_data_page.*
 import javax.inject.Inject
 
 /**
@@ -27,7 +27,7 @@ class SourcesFragment : BaseFragment() {
     @Inject lateinit var router: AppRouter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_sources, container, false)
+        return inflater?.inflate(R.layout.fragment_data_page, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -36,8 +36,8 @@ class SourcesFragment : BaseFragment() {
         Log.i(TAG, "onViewCreated: Component: ${act.component}")
         act.component.inject(this)
 
-        sourcesRecyclerView.layoutManager = LinearLayoutManager(activity)
-        sourcesRecyclerView.adapter = adapter
+        dataRV.layoutManager = LinearLayoutManager(activity)
+        dataRV.adapter = adapter
 
         refresher.setOnRefreshListener { loadSources() }
 
