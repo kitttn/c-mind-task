@@ -6,7 +6,6 @@ import kitttn.cmindtesttask.interactors.ArticlesInteractor
 import kitttn.cmindtesttask.interactors.SourcesInteractor
 import kitttn.cmindtesttask.plusAssign
 import kitttn.cmindtesttask.states.ArticleStateOpenedNew
-import kitttn.cmindtesttask.states.SourceStateNothing
 import kitttn.cmindtesttask.views.MainActivity
 import kitttn.cmindtesttask.views.articles.ArticlesFragment
 import kitttn.cmindtesttask.views.sources.SourcesFragment
@@ -33,11 +32,9 @@ class AppRouter(private val activity: MainActivity,
                         openArticlesFragment(it.sourceId)
                 })
 
-        composite += sources.getStateChangeObservable()
-                .subscribe({
-                    if (it is SourceStateNothing)
-                        openSourcesFragment()
-                })
+        val showingSmth = activity.supportFragmentManager.findFragmentByTag(SOURCES)
+        if (showingSmth == null)
+            openSourcesFragment()
     }
 
     fun stop() {

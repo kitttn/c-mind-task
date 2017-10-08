@@ -42,7 +42,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Log.i(TAG, "onBackPressed: backstack entry count: ${supportFragmentManager.backStackEntryCount}")
-        super.onBackPressed()
+        val total = supportFragmentManager.backStackEntryCount
+        Log.i(TAG, "onBackPressed: backstack entry count: $total")
+        if (total <= 1) {
+            Log.i(TAG, "onBackPressed: App is finishing by back press!")
+            finish()
+        } else
+            super.onBackPressed()
     }
 }
